@@ -1,0 +1,45 @@
+\usepackage{ctex}
+\CTEXsetup[format={\Large\bfseries}]{section}
+\usepackage[top=28mm,bottom=28mm,left=15mm,right=15mm]{geometry}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{\pagestyle{fancy}}
+\pagestyle{fancy}
+\lhead{\kaishu 清华大学药学院药理毒理实验}
+\rhead{\kaishu 实验报告一}
+
+\usepackage{fontspec}
+\usepackage{wasysym}
+\setCJKmainfont[AutoFakeBold={2}]{STZhongsong}
+\setCJKmonofont{STZhongsong}
+
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[figuresleft]{rotating}
+\usepackage[para]{threeparttable}
+\newcommand\info[2][40mm]{\underline{\makebox[#1][c]{#2}}}
+\newcommand{\infoTable}[7]{
+    \renewcommand\arraystretch{1.4}
+    \begin{table}
+        \begin{tabularx}{\textwidth}{
+        >{\hsize=0.6\hsize\linewidth=\hsize}X
+        >{\hsize=0.6\hsize\linewidth=\hsize}X
+        >{\hsize=2.0\hsize\linewidth=\hsize}X
+        >{\hsize=0.8\hsize\linewidth=\hsize}X
+        }
+            天气：\info[14mm]{#1} & 温度：\info[14mm]{#2 $^{\circ}\text{C}$} & 湿度：\info[14mm]{#3 $\%$} & 日期：#4\\
+            姓名：\info[14mm]{#5} & 班级：\info[14mm]{#6} & 同组人：\info[70mm]{#7} & 
+        \end{tabularx}
+    \end{table}
+}
+\newcommand\columnC{\centering\arraybackslash}
+\newcommand\columnL{\raggedright\arraybackslash}
+\newcommand\columnR{\raggedleft\arraybackslash}
+
+\usepackage{svg}
+\usepackage{pdfpages}
