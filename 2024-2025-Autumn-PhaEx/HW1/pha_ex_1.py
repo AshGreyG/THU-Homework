@@ -4,7 +4,7 @@ from scipy.optimize import curve_fit
 from scipy.special import erf
 
 def normal_cdf(x, mu, sigma) :
-     return 0.5 * (1 + erf((x - mu) / (sigma * np.sqrt(2))))
+    return 0.5 * (1 + erf((x - mu) / (sigma * np.sqrt(2))))
 
 plt.rcParams["font.family"]="STZhongsong"
 
@@ -17,7 +17,7 @@ ax_bars, ax_curves = fig.subplots(1, 2)
 ax_bars.set_title("阳性频数图", loc="center", fontsize="medium")
 ax_bars.bar(group, count, width=0.5, color="#89b4fa", edgecolor="white")
 ax_bars.set(xlim=(0, 3), xlabel="组号",
-            ylim=(1, 12), ylabel="阳性小鼠数量")
+            ylim=(0, 12), ylabel="阳性小鼠数量（只）")
 ax_bars.set_xticks(np.linspace(0.5, 2.5, 5), labels=["1", "2", "3", "4", "5"])
 
 ax_curves.set_title("累加剂量曲线", loc="center", fontsize="medium")
@@ -48,6 +48,6 @@ lgd_fit = np.linspace(min(lgd), max(lgd), 200)
 react_rate_fit = normal_cdf(lgd_fit, mu, sigma)
 ax_curves.plot(lgd_fit, react_rate_fit, color="#eba0ac")
 ax_curves.set(xlim=(min(lgd) - 0.05, max(lgd) + 0.03), xlabel="剂量对数",
-              ylabel="效应百分率")
+              ylabel="效应百分率（%）")
 
 plt.savefig("figure-1.svg", format="svg")
