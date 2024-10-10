@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\geometry{margin=1in}
+
+\title{THU-Discrete Mathematics-Homework-1}
+\author{He YuHui\quad 2022012050}
+\date{13 September 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework}
+
+\subsection{Judge the statements}
+
+\begin{itemize}
+    \item $P\to P$
+    
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c|c}
+             $P$ & $\textbf{Value}$ \\ 
+             \hline
+             $\mathsf{T}$ & $\mathsf{T}$\\
+             $\mathsf{F}$ & $\mathsf{T}$
+        \end{tabular}
+        \caption{The truth table of $P\to P$}
+        \label{tab:The Truth Tabel-1}
+    \end{table}
+    
+    So $P\to P$ is a \textbf{tautology}.
+
+    \item $(P\vee Q)\to(P\vee Q)$
+
+    We use $R$ to denote $P\vee Q$, so according to the tautology $P\to P$, we know $(P\vee Q)\to(P\vee Q)$ is also a \textbf{tautology}.
+
+    \item $\lnot((P\vee Q)\to(Q\vee P))$
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c|c|c}
+             $P$ & $Q$ & \textbf{Value} \\
+             \hline
+             $\mathsf{T}$ & $\mathsf{T}$ & $\mathsf{F}$\\
+             $\mathsf{T}$ & $\mathsf{F}$ & $\mathsf{F}$\\
+             $\mathsf{F}$ & $\mathsf{T}$ & $\mathsf{F}$\\
+             $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{F}$
+        \end{tabular}
+        \caption{The truth table of $\lnot((P\vee Q)\to(Q\vee P))$}
+        \label{tab:The Truth Tabel-2}
+    \end{table}
+
+    So $\lnot((P\vee Q)\to(Q\vee P))$ is a \textbf{contradiction}.
+ 
+\end{itemize}
+
+\subsection{Judge the propositions}
+
+\begin{itemize}
+    \item \textbf{This pot of jasmine is so fragrant} is not a proposition, because this is a \textbf{exclamations}.
+    
+    \item $12$ \textbf{is a prime number} is a proposition, and its truth value is $\mathsf{F}$.
+
+    \item $x+y=2$ is not a proposition, because we do not know what do $x$ and $y$ denote.
+\end{itemize}
+
+\subsection{Use symbols to denote}
+
+\begin{itemize}
+    \item[1] Use $P$ to denote \textit{today is cold}, $Q$ to denote \textit{it is snowing}:
+        \begin{itemize}
+            \item[a] $P\to Q$
+            \item[b] $P\leftrightarrow Q$
+            \item[c] $Q\to P$
+        \end{itemize}
+
+    \item[2] Use $P$ to denote \textit{today is cold}, $Q$ to denote \textit{it is snowing}:
+        \begin{itemize}
+            \item[a] Either it is not cold today, or it is not snowing.
+            \item[b] Either it is cold today, or it is not snowing. 
+        \end{itemize}
+\end{itemize}
+
+\subsection{Answer}
+
+\begin{itemize}
+    \item[1] I guess when $P=\mathsf{F}$ and $Q=\mathsf{T}$, the value of entire statement is $\mathsf{T}$.
+    \item[2] The truth table is:
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c|c|c}
+             $P$ & $Q$ & \textbf{Value} \\
+             \hline
+             $\mathsf{T}$ & $\mathsf{T}$ & $\mathsf{F}$\\
+             $\mathsf{T}$ & $\mathsf{F}$ & $\mathsf{F}$\\
+             $\mathsf{F}$ & $\mathsf{T}$ & $\mathsf{T}$\\
+             $\mathsf{F}$ & $\mathsf{F}$ & $\mathsf{F}$
+        \end{tabular}
+        \caption{The truth table of $(P\to Q)\wedge\lnot(P\leftrightarrow Q)$}
+        \label{tab:The Truth Tabel-2}
+    \end{table}
+\end{itemize}
+
+\subsection{Formalize the following natural statements}
+
+Use $P$ to denote \textit{He is tall}, $Q$ to denote \textit{He is fat}
+
+\begin{itemize}
+    \item[1] $P\wedge Q$
+    \item[2] $P\wedge\lnot Q$
+    \item[3] $\lnot(P\vee Q)$
+    \item[4] $\lnot P\wedge\lnot Q$
+\end{itemize}
+
+\end{document}

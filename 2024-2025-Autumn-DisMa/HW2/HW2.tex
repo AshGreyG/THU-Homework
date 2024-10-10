@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsmath}
+
+\geometry{margin=0.8in}
+
+\title{THU-DiscreteMathmatics-Homework-2}
+\author{He Yuhui\quad 2022012050}
+\date{September 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework}
+
+\subsection{Transform to Polish Notation}
+
+\begin{itemize}
+    \item[1] $\to\vee PQ\vee RS$
+    \item[2] $\leftrightarrow\wedge\lnot PR\wedge PQ$
+    \item[3] $\vee\vee\lnot\lnot P\wedge WR\lnot Q$
+    \item[4] $\wedge P\to Q\lnot R$
+\end{itemize}
+
+\subsection{Prove}
+
+\begin{itemize}
+    \item[1] We have
+
+    $$
+        \begin{aligned}
+            &P\to Q\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&\lnot P\vee Q\\
+            (\textbf{Commutative}) \Leftrightarrow\;&Q\vee\lnot P\\
+            (\textbf{Double Negation}) \Leftrightarrow\;&\lnot(\lnot Q)\vee(\lnot P)\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&\lnot Q\to\lnot P
+        \end{aligned}
+    $$
+
+    \item[2] We have
+
+    $$
+        \begin{aligned}
+            &((P\to \lnot Q)\to(Q\to \lnot P))\wedge R\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&((\lnot P\vee\lnot Q)\to(\lnot Q\vee\lnot P))\wedge R\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&(\lnot(\lnot P\vee\lnot Q)\vee(\lnot Q\vee\lnot P))\wedge R\\
+            (\textbf{De Morgan Law}) \Leftrightarrow\;&((P\wedge Q)\vee \lnot(Q\wedge P))\wedge R\\
+            (\textbf{Commutative}) \Leftrightarrow\;&((P\wedge Q)\vee \lnot(P\wedge Q))\wedge R\\
+            (\textbf{Use}\;S\;\textbf{to denote}\;P\wedge Q) \Leftrightarrow\;&(S\vee\lnot S)\wedge R\\
+            (\textbf{Negation}) \Leftrightarrow\;&\mathsf{T}\wedge R\\
+            (\textbf{Absorption}) \Leftrightarrow\;& R
+        \end{aligned}
+    $$
+
+    \item[3] We have
+
+    $$
+        \begin{aligned}
+            &(P\leftrightarrow Q)\leftrightarrow((P\wedge\lnot Q)\vee (Q\wedge\lnot P))\\
+            (\textbf{Equivalence Law}) \Leftrightarrow\;&((P\to Q)\wedge(Q\to P))\leftrightarrow ((P\wedge\lnot Q)\vee (Q\wedge\lnot P))\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&((\lnot P\vee Q)\wedge(\lnot Q\vee P))\leftrightarrow((P\wedge\lnot Q)\vee (Q\wedge\lnot P))\\
+            (\textbf{De Morgan Law}) \Leftrightarrow\;&\lnot((P\wedge\lnot Q)\vee (Q\wedge\lnot P))\leftrightarrow ((P\wedge\lnot Q)\vee (Q\wedge\lnot P))\\
+            (\textbf{Use}\;R\;\textbf{to denote}\;(P\wedge\lnot Q)\vee (Q\wedge\lnot P)) \Leftrightarrow\;& \lnot R\leftrightarrow R\\
+            (\textbf{Complement Law}) \Leftrightarrow\;&\mathsf{F}\\
+            (\textbf{Negation}) \Leftrightarrow\;& P\wedge\lnot P
+        \end{aligned}
+    $$
+
+    \item[4] We have
+
+    $$
+        \begin{aligned}
+            & P\to(Q\to R)\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&P\to (\lnot Q\vee R)\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&\lnot P\vee(\lnot Q\vee R)\\
+            (\textbf{Associative}) \Leftrightarrow\;&(\lnot P\vee\lnot Q)\vee R\\
+            (\textbf{De Morgan Law}) \Leftrightarrow\;&\lnot(P\wedge Q)\vee R\\
+            (\textbf{Implication Equivalence}) \Leftrightarrow\;&(P\wedge Q)\to R
+        \end{aligned}
+    $$
+
+\end{itemize}
+
+\subsection{Write the Statement of  $A$ and $B$}
+
+\begin{itemize}
+    \item[$A$] We have
+
+    $$
+        \begin{aligned}
+            A&=(\lnot P\wedge\lnot Q)\\
+            &=\lnot(P\vee Q)
+        \end{aligned}
+    $$
+
+    \item[$B$] We have
+
+    $$
+        \begin{aligned}
+            B&=\lnot(P\wedge\lnot Q)\\
+            &=\lnot P\vee Q
+        \end{aligned}
+    $$
+    
+\end{itemize}
+
+\subsection{Using $\uparrow$ and $\downarrow$ to denote $\lnot$, $\wedge$, $\vee$ and $\to$}
+
+We know that
+
+$$
+    A\uparrow B\Leftrightarrow \lnot(A\wedge B),\quad A\downarrow B\Leftrightarrow \lnot(A\vee B)
+$$
+
+\begin{itemize}
+    \item[$\lnot$] We have
+
+    $$
+        \begin{aligned}
+            \lnot A&=\lnot(A\wedge A)=A\uparrow A\\
+            \lnot A&=\lnot(A\vee A)=A\downarrow A
+        \end{aligned}
+    $$
+
+    \item[$\wedge$] We have
+
+    $$
+        \begin{aligned}
+            A\wedge B&=\lnot\lnot(A\wedge B)\\
+            &=\lnot(A\uparrow B)\\
+            &=(A\uparrow B)\uparrow(A\uparrow B)\\
+            A\wedge B&=\lnot(\lnot A\vee\lnot B)\\
+            &=(\lnot A)\downarrow(\lnot B)\\
+            &=(A\downarrow A)\downarrow(B\downarrow B)
+        \end{aligned}
+    $$
+
+    \item[$\vee$] We have
+
+    $$
+        \begin{aligned}
+            A\vee B&=\lnot(\lnot A\wedge\lnot B)\\
+            &=(\lnot A)\uparrow(\lnot B)\\
+            &=(A\uparrow A)\uparrow(B\uparrow B)\\
+            A\vee B&=\lnot\lnot(A\vee B)\\
+            &=\lnot(A\downarrow B)\\
+            &=(A\downarrow B)\downarrow(A\downarrow B)
+        \end{aligned}
+    $$
+
+    \item[$\to$] We have
+
+    $$
+        \begin{aligned}
+            A\to B&=\lnot A\vee B\\
+            &=\lnot(A\wedge \lnot B)\\
+            &=A\uparrow(\lnot B)\\
+            &=A\uparrow(B\uparrow B)\\
+            A\to B&=\lnot A\vee B\\
+            &=\lnot\lnot(\lnot A\vee B)\\
+            &=\lnot(\lnot A\downarrow B)\\
+            &=\lnot((A\downarrow A)\downarrow B)\\
+            &=((A\downarrow A)\downarrow B)\downarrow((A\downarrow A)\downarrow B)
+        \end{aligned}
+    $$
+\end{itemize}
+
+\end{document}
