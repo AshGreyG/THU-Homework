@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsmath}
+
+\geometry{margin=0.8in}
+
+\title{THU-DiscreteMathmatics-Homework-3}
+\author{He Yuhui\quad 2022012050}
+\date{Octorber 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework}
+
+\subsection{Write the following formulas}
+
+\begin{itemize}
+    \item $P\wedge\lnot P$
+
+    \begin{itemize}
+        \item [1] \textbf{CNF}: $P\wedge\lnot P$
+        \item [2] \textbf{DNF}: $P\wedge\lnot P$
+        \item [3] \textbf{PCNF}: $P\wedge\lnot P=\bigwedge_{0,1}$
+        \item [4] \textbf{PDNF}: Empty formula
+        \item [5] There is no $P$ that let $P\wedge\lnot P$ be $\mathsf{True}$.
+    \end{itemize}
+
+    \item $(P\leftrightarrow Q)\vee((Q\wedge P)\leftrightarrow(Q\leftrightarrow\lnot P))$
+
+    \begin{itemize}
+        \item [1] \textbf{CNF}:
+        
+            $$
+            \begin{aligned}
+                &(P\leftrightarrow Q)\vee((Q\wedge P)\leftrightarrow(Q\leftrightarrow\lnot P))\\
+                (\textbf{Equivalence Law})\Leftrightarrow&((P\rightarrow Q)\wedge(Q\rightarrow P))\vee((Q\wedge P)\leftrightarrow((Q\rightarrow\lnot P)\wedge(\lnot P\rightarrow Q)))\\
+                (\textbf{Implication Equivalence})\Leftrightarrow&((\lnot P\vee Q)\wedge(\lnot Q\vee P))\vee((Q\wedge P)\leftrightarrow((\lnot Q\vee\lnot P)\wedge(P\vee Q)))
+            \end{aligned}
+            $$
+
+            We first caculate $(Q\wedge P)\rightarrow((\lnot Q\vee\lnot P)\wedge(P\vee Q))$:
+
+            $$
+            \begin{aligned}
+                &(Q\wedge P)\rightarrow((\lnot Q\vee\lnot P)\wedge(P\vee Q))\\
+                (\textbf{Implication Equivalence})\Leftrightarrow&\lnot(Q\wedge P)\vee((\lnot Q\vee\lnot P)\wedge(P\vee Q))\\
+                (\textbf{De Morgan Law})\Leftrightarrow&(\lnot P\vee\lnot Q)\vee((\lnot Q\vee\lnot P)\wedge(P\vee Q))\\
+                (\textbf{Distributive})\Leftrightarrow&(\lnot P\vee\lnot Q\vee\lnot P\vee\lnot Q)\wedge(\lnot P\vee\lnot Q\vee P\vee Q)\\
+                (\textbf{Complement, Idempotent})\Leftrightarrow&(\lnot P\vee\lnot Q)\wedge\mathsf{T}\\
+                (\textbf{Identity})\Leftrightarrow&\lnot P\vee\lnot Q
+            \end{aligned}
+            $$
+
+            Then we caculate $((\lnot Q\vee\lnot P)\wedge(P\vee Q))\rightarrow(Q\wedge P)$:
+
+            $$
+            \begin{aligned}
+                &((\lnot Q\vee\lnot P)\wedge(P\vee Q))\rightarrow(Q\wedge P)\\
+                (\textbf{Implication Equivalence})\Leftrightarrow&\lnot((\lnot Q\vee\lnot P)\wedge(P\vee Q))\vee(Q\wedge P)\\
+                (\textbf{De Morgan Law})\Leftrightarrow&((P\wedge Q)\vee(\lnot P\wedge\lnot Q))\vee(P\wedge Q)\\
+                (\textbf{Idempotent})\Leftrightarrow&(P\wedge Q)\vee(\lnot P\wedge\lnot Q)
+            \end{aligned}
+            $$
+
+            So we have
+
+            $$
+            \begin{aligned}
+                &((\lnot P\vee Q)\wedge(\lnot Q\vee P))\vee((Q\wedge P)\leftrightarrow((\lnot Q\vee\lnot P)\wedge(P\vee Q))\\
+                (\textbf{Equivalence Law})\Leftrightarrow&((\lnot P\vee Q)\wedge(\lnot Q\vee P))\vee((\lnot P\vee\lnot Q)\wedge((P\wedge Q)\vee(\lnot P\wedge\lnot Q)))\\
+                (\textbf{Distributive})\Leftrightarrow&((\lnot P\vee Q)\wedge(\lnot Q\vee P))\vee(\lnot P\wedge\lnot Q)\\
+                (\textbf{Distributive})\Leftrightarrow&(\lnot P\vee Q)\wedge(\lnot P\vee\lnot Q)
+            \end{aligned}
+            $$
+
+        \item [2] \textbf{DNF}: $(\lnot P\wedge Q)\vee(\lnot P\wedge\lnot Q)$
+        \item [3] \textbf{PCNF}: $\bigwedge_{0,1}$
+        \item [4] \textbf{PDNF}: $\bigvee_{0,1}$
+        \item [5] When $(P,Q)=(\mathsf{F},\mathsf{F})$ or $(P,Q)=(\mathsf{F},\mathsf{T})$.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Prove}
+
+$P\rightarrow(Q\rightarrow R)\Rightarrow(P\rightarrow Q)\rightarrow(P\rightarrow R)$
+
+\begin{itemize}
+    \item [1] $A\rightarrow B$ is a tautology:
+
+        $$
+        \begin{aligned}
+            &(P\rightarrow(Q\rightarrow R))\rightarrow((P\rightarrow Q)\rightarrow(P\rightarrow R))\\
+            (\textbf{Implication Equivalence})\Leftrightarrow&(P\wedge Q\wedge\lnot R)\vee(P\wedge\lnot Q)\vee\lnot P\vee R\\
+            (\textbf{Identity})\Leftrightarrow&m_6\vee(m_4\vee m_5)\vee(m_0\vee m_1\vee m_2\vee m_3)\vee(m_1\vee m_3\vee m_5\vee m_7)\\
+            (\textbf{Idempotent})\Leftrightarrow& \bigvee_{0,\cdots,7}
+        \end{aligned}
+        $$
+
+        So it is a tautology.
+
+    \item [2] $A\wedge\lnot B$ is a contradicton:
+    
+        $$
+        \begin{aligned}
+            &(P\rightarrow(Q\rightarrow R))\wedge\lnot((P\rightarrow Q)\rightarrow(P\rightarrow R))\\
+            (\textbf{Implication Equivalence})\Leftrightarrow&(\lnot P\vee(\lnot Q\vee R))\wedge\lnot(\lnot(\lnot P\vee Q)\vee(\lnot P\vee R))\\
+            (\textbf{De Morgan Law})\Leftrightarrow&(\lnot P\vee\lnot Q\vee R)\wedge((\lnot P\vee Q)\wedge(P\wedge\lnot R))\\
+            (\textbf{Associative})\Leftrightarrow&(\lnot P\vee\lnot Q\vee R)\wedge(P\wedge Q\wedge \lnot R)\\
+            =&\bigwedge_{0,\cdots,7}
+        \end{aligned}
+        $$
+
+        So it is a contradicton.
+
+    \item [3] Explain
+    
+    When event $P$ happens, then when event $Q$ happens, the event $R$ will also happen. So we know, when the event \textit{event $P$ happening leads to the happen of event $Q$} happens, the event $R$ will also happen. And it's equivalent to $P\rightarrow R$.
+\end{itemize}
+
+\subsection{Prove}
+
+$$
+\begin{aligned}
+    &\lnot Q\vee S,(E\rightarrow\lnot U)\rightarrow\lnot S\\
+    (\textbf{Conjunction})\Rightarrow&(\lnot Q\vee S)\wedge((E\rightarrow\lnot U)\rightarrow\lnot S)\\
+    (\textbf{Implication Equivalence})\Leftrightarrow&(\lnot Q\vee S)\wedge((E\wedge U)\vee\lnot S)\\
+    (\textbf{Distributive})\Leftrightarrow&(\lnot Q\vee S)\wedge((E\vee\lnot S)\wedge(U\vee\lnot S))\\
+    (\textbf{Conjunction})\Rightarrow&\lnot Q\vee S,E\vee\lnot S,U\vee\lnot S\\
+    (\textbf{Simplification})\Rightarrow&\lnot Q\vee S,E\vee\lnot S\\
+    (\textbf{Resolution})\Rightarrow&\lnot Q\vee E\\
+    (\textbf{Implication Equivalence})\Leftrightarrow&Q\rightarrow E
+\end{aligned}
+$$
+
+\subsection{Prove}
+
+We use
+
+\begin{itemize}
+    \item $P$ to denote \textit{the state subsidizes agricultural products}.
+    \item $Q$ to denote \textit{the state exercises control over agricultural products}.
+    \item $R$ to denote \textit{the shortage of agricultural products}.
+\end{itemize}
+
+We know $\lnot P\rightarrow Q$, $Q\rightarrow\lnot R$, and we need to prove $R\rightarrow P$:
+
+$$
+\begin{aligned}
+    &\lnot P\rightarrow Q,Q\rightarrow\lnot R\\
+    (\textbf{Hypothetical Syllogism})\Rightarrow&\lnot P\rightarrow\lnot Q\\
+    (\textbf{Contrapositive})\Leftrightarrow&R\rightarrow P
+\end{aligned}
+$$
+
+\end{document}
