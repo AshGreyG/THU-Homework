@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{margin=0.8in}
+
+\title{THU-DiscreteMathmatics-Homework-5}
+\author{He Yuhui\quad 2022012050}
+\date{Octorber 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Symbolize}
+
+\begin{itemize}
+    \item [1] Use $P_1$ and $P_2$ to denote the two points on the plane, predicate $\varphi(P,l)$ to denote point $P$ on the line $l$, and predicate $\psi(l_1, l_2)$ to denote $l_1$ and $l_2$ is the same line:
+
+        $$
+            (\exists l)((\varphi(P_1,l)\land\varphi(P_2,l))\land(\forall l^\prime)((\varphi(P_1, l^\prime)\land\varphi(P_2,l^\prime))\to\psi(l,l^\prime))
+        $$
+
+    \item [2] Use predicate $\varphi(x)$ to denote $x\in\mathbb{R}$, $\alpha(x,y),\beta(x,y),\gamma(x,y)$ to denote $x<y,x=y,x>y$:
+    
+        $$
+            (\forall x)(\forall y)((\varphi(x)\land\varphi(y))\to(\alpha(x,y)\lor\beta(x,y)\lor\gamma(x,y)))
+        $$
+
+    \item [3] Use predicate people $\varphi(x)$ to denote $x$ is working in Beijing, predicate $\psi(x)$ to denote the household of $x$ is Beijing:
+    
+        $$
+            (\exists x)(\varphi(x)\land\lnot\psi(x))
+        $$
+
+    \item [4] Use predicate $\varphi(x)$ to denote $x$ is a kind of metal, predicate $\psi(x)$ to denote $x$ is a kind of liquid, and predicate $\epsilon(x, y)$ to denote $x$ can be dissolved in $y$:
+
+        $$
+            (\forall x)(\exists y)((\varphi(x)\land\psi(y))\to\epsilon(x,y))
+        $$
+\end{itemize}
+
+\section{Translate to natural language}
+
+\begin{itemize}
+    \item [1] For all positive integer $x$, $x$ is a rational number and it is also a real number.
+    \item [2] For all positive integer $x$, $x$ is a rational number, bot not all rational number is positive interger.
+\end{itemize}
+
+\section{Translate to propositional logic formula}
+
+\begin{itemize}
+    \item [1] 
+
+        $$
+        \begin{aligned}
+            &((P(a,a)\to Q(a,a))\lor(P(a,b)\to Q(a,b))\lor(P(a,c)\to Q(a,c)))\\
+            \land&((P(b,a)\to Q(b,a))\lor(P(b,b)\to Q(b,b))\lor(P(b,c)\to Q(b,c)))\\
+            \land&((P(c,a)\to Q(c,a))\lor(P(c,b)\to Q(c,b))\lor(P(c,c)\to Q(c,c)))
+        \end{aligned}
+        $$
+
+    \item [2]
+    
+        $$
+        \begin{aligned}
+            P(a,a)\lor P(a,b)\lor P(a,c)\lor P(b,a)\lor P(b,b)\lor P(b,c)\lor P(c,a)\lor P(c,b)\lor P(c,c)
+        \end{aligned}
+        $$
+
+    \item [3]
+    
+        $$
+        \begin{aligned}
+            &((P(a,a)\lor P(b,a)\lor P(c,a))\to(Q(a,a)\land Q(b,a)\land Q(c,a)))\\
+            \land&((P(a,b)\lor P(b,b)\lor P(c,b))\to(Q(a,b)\land Q(b,b)\land Q(c,b)))\\
+            \land&((P(a,c)\lor P(b,c)\lor P(c,c))\to(Q(a,c)\land Q(b,c)\land Q(c,c)))
+        \end{aligned} 
+        $$
+\end{itemize}
+\end{document}
