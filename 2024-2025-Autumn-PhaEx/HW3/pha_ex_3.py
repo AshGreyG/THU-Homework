@@ -19,10 +19,10 @@ exp_dist_std  = exp["墨汁前沿距离幽门的距离（cm）"].std()
 exp_rate_mean = exp["小肠推进/幽门-盲肠长度（%）"].mean()
 exp_rate_std  = exp["小肠推进/幽门-盲肠长度（%）"].std()
 print(f'''
-exp_dist_mean : {a2(exp_dist_mean)}\n
-exp_dist_std  : {a2(exp_dist_std)}\n
-exp_rate_mean : {a4(exp_rate_mean)}\n
-exp_rate_std  : {a4(exp_rate_std)}\n
+exp_dist_mean : {a2(exp_dist_mean)}
+exp_dist_std  : {a2(exp_dist_std)}
+exp_rate_mean : {a4(exp_rate_mean)}
+exp_rate_std  : {a4(exp_rate_std)}
 ''')
 
 con = ex3_sheet1[ex3_sheet1["药物"].isin(["5%炭末/5%阿拉伯胶"])]
@@ -31,10 +31,10 @@ con_dist_std  = con["墨汁前沿距离幽门的距离（cm）"].std()
 con_rate_mean = con["小肠推进/幽门-盲肠长度（%）"].mean()
 con_rate_std  = con["小肠推进/幽门-盲肠长度（%）"].std()
 print(f'''
-con_dist_mean : {a2(con_dist_mean)}\n
-con_dist_std  : {a2(con_dist_std)}\n
-con_rate_mean : {a4(con_rate_mean)}\n
-con_rate_std  : {a4(con_rate_std)}\n
+con_dist_mean : {a2(con_dist_mean)}
+con_dist_std  : {a2(con_dist_std)}
+con_rate_mean : {a4(con_rate_mean)}
+con_rate_std  : {a4(con_rate_std)}
 ''')
 
 ip = ex3_sheet2[ex3_sheet2["给药途径"].isin(["腹腔注射"])]
@@ -57,8 +57,8 @@ dirty_iv_time = dirty_iv_time.replace({"立刻" : "1s", "1s立刻" : "1s"})
 iv_time = dirty_iv_time.apply(convert_to_seconds)
 iv_time_mean = iv_time.mean()
 print(f'''
-ip_die_rate  : {a4(ip_die_count / ip_all_count)}\n
-ip_time_mean : {a2(ip_time_mean)}\n
-iv_die_rate  : {a4(iv_die_count / iv_all_count)}\n
-iv_time_mean : {a2(iv_time_mean)}\n
+ip_die_rate  : {a4(ip_die_count / ip_all_count)}
+ip_time_mean : {a2(ip_time_mean)}
+iv_die_rate  : {a4(iv_die_count / iv_all_count)}
+iv_time_mean : {a2(iv_time_mean)}
 ''')
