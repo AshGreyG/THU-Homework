@@ -98,7 +98,9 @@ p_values = np.array([pval_low, pval_mid, pval_high])
 
 fig, ax = plt.subplots(figsize=(5, 6))
 
-ax.bar(group, mean_count, yerr=sem_count, width=0.4, capsize=5, color=color_C, alpha=alpha_bar, label="平均扭体次数", error_kw={"ecolor": color_C, "elinewidth" : 2})
+ax.bar(group, mean_count, yerr=sem_count, width=0.4, capsize=5, 
+       color=color_C, alpha=alpha_bar, label="平均扭体次数", 
+       error_kw={"ecolor": color_C, "elinewidth" : 2})
 
 jitter = 0.05
 x_jittered_con = group[0] + np.random.uniform(-jitter, jitter, len(con_times))
@@ -112,7 +114,8 @@ ax.scatter(x_jittered_high, high_times, s=30, alpha=alpha_scatter, color=color_C
 
 for i, p in enumerate(p_values) :
     sig = "***" if p < 0.001 else "**" if p < 0.01 else "*" if p < 0.05 else ""
-    ax.text(i + 1, mean_count[i + 1] + sem_count[i + 1] * 1.2, f"p={np.around(p, 3)}", ha="center", va="bottom", fontsize=8, color=color_C)
+    ax.text(i + 1, mean_count[i + 1] + sem_count[i + 1] * 1.2, f"p={np.around(p, 3)}", 
+            ha="center", va="bottom", fontsize=8, color=color_C)
 
 ax.set_xticks(group)
 ax.set_xticklabels(group_labels)
