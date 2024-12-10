@@ -44,16 +44,21 @@
 
   $ A sect B arrow.l.r.double A subset.eq -B arrow.l.r.double B subset.eq -A $
 \
-=== 主观题 9.4
+== 主观题 9.4
 \
 1. $A-B=B$，则说明 $forall x in B$ 都有 $ x in.not B and x in A$，这只能说明 $A=B=emptyset$
 2. $A-B=B-A$，则说明 $forall x in A and x in.not B$ 都有 $x in B and x in.not A$，因此 $A=B$
 3. $A sect B=A union B$，则说明 $A=B$
 4. $A xor B=A$，则说明 $B subset.eq A$
 \
-=== 主观题 9.5
+== 主观题 9.5
 \
-1. $(A-B)union(A-C)=A$，这说明 $A-B supset.eq A-(A-C)$，于是可以得到 $A-B supset.eq C$，而这说明 $B sect C=emptyset$
+1. $(A-B)union(A-C)=A$，这说明 $A-B supset.eq A-(A-C)$，于是可以得到 $A-B supset.eq C$，而这说明 $B sect C=emptyset$。如果利用 De Mogan 律可以更快得到
+
+  $ (A-B)union(A-C)=A-B sect C=A $
+
+  这说明 $B sect C=emptyset$
+
 2. $(A-B)xor(A-C)=emptyset$，注意到
   
   $ (A-B)xor(A-C)&=((A-B)-(A-C))union((A-C)-(A-B)) \
@@ -62,7 +67,7 @@
 
   这说明 $B=C$
 \
-=== 主观题 9.6
+== 主观题 9.6
 \
 1. 若 $A times B=emptyset$，则 $A=emptyset$ 或者 $B=emptyset$
 2. 只有当 $A=emptyset$ 时才有可能有 $A times A=A$，否则 $A times A$ 得到的是集合 ${<x,y> | x,y in A}$，当 $A eq.not emptyset$ 时，$A times A eq.not A$
