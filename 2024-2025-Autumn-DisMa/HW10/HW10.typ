@@ -1,3 +1,5 @@
+#import "@preview/fletcher:0.5.3" as fletcher: diagram, node, edge
+
 = 2024-2025秋季学期离散数学-第 10 次作业
 \
 == 主观题 9.7
@@ -75,5 +77,96 @@ $ "#"(N_2 union N_3 union N_5)&="#"(N_2)+"#"(N_3)+"#"(N_5) \
 \
 == 主观题 10.5
 \
-$n$ 元关系是指对于任意 $n>1$，Cartesian 积 $A_1 times dots.h.c A_n$ 的任意子集都是从 $A_1$ 到 $A_n$ 的 $n$ 元关系。我们知道 Cartesian 积满足
+$n$ 元关系是指对于任意 $n>1$，Cartesian 积 $A_1 times dots.h.c times A_n$ 的任意子集都是从 $A_1$ 到 $A_n$ 的 $n$ 元关系。我们知道上述 Cartesian 积可以被写作：
+
+$ ( dots.c.h ((A_1 times A_2) times A_3) times dots.c.h) times A_n $
+
+因此使用二元关系可以这么定义：
+
+$ A_1 times dots.c.h times A_n={< dots.c.h <<p_1,p_2>,p_3> dots.c.h, p_n> | p_i in A_i, 1 <= i <= n} $
+\
+== 主观题 10.6
+\
+1. 对于集合 ${0,1,2,3,4}$ 上的关系 $R_1={<x,y> | x >= 2 and y <= 2}$
+
+  #table(
+    stroke: none,
+    columns: (auto, auto),
+    align: center,
+    table.header(
+      [关系图], [关系矩阵]
+    ),
+    diagram(
+      node((1,0), [0], name: <1>),
+      node((1,0.4), [1], name: <2>),
+      node((1,0.8), [2], name: <3>),
+      node((1,1.2), [3], name: <4>),
+      node((1,1.6), [4], name: <5>),
+      node((2,0), [0], name: <6>),
+      node((2,0.4), [1], name: <7>),
+      node((2,0.8), [2], name: <8>),
+      node((2,1.2), [3], name: <9>),
+      node((2,1.6), [4], name: <10>),
+      edge(<3>, <6>, "->"),
+      edge(<3>,<7>, "->"),
+      edge(<3>, <8>, "->"),
+      edge(<4>, <6>, "->"),
+      edge(<4>, <7>, "->"),
+      edge(<4>, <8>, "->"),
+      edge(<5>, <6>, "->"),
+      edge(<5>, <7>, "->"),
+      edge(<5>, <8>, "->")
+    ),
+    $ mat(
+      space.en , #text(red)[0], #text(red)[1], #text(red)[2], #text(red)[3], #text(red)[4] ;
+      #text(red)[0], 0, 0, 0, 0, 0;
+      #text(red)[1], 0, 0, 0, 0, 0;
+      #text(red)[2], 1, 1, 1, 0, 0;
+      #text(red)[3], 1, 1, 1, 0, 0;
+      #text(red)[4], 1, 1, 1, 0, 0;
+      augment: #(hline: 1, vline: 1, stroke: 0.5pt + red)
+    ) $
+  )
+
+2. 对于集合 ${0,1,2,3,4}$ 上的关系 $R_2={<x,y> | forall 1 <= k <= min(x,y), x mod k != 0 and y mod k != 0}$，即 $x,y$ 互质
+
+  #table(
+    stroke: none,
+    columns: (auto, auto),
+    align: center,
+    table.header(
+      [关系图], [关系矩阵]
+    ),
+    diagram(
+      node((1,0), [0], name: <1>),
+      node((1,0.4), [1], name: <2>),
+      node((1,0.8), [2], name: <3>),
+      node((1,1.2), [3], name: <4>),
+      node((1,1.6), [4], name: <5>),
+      node((2,0), [0], name: <6>),
+      node((2,0.4), [1], name: <7>),
+      node((2,0.8), [2], name: <8>),
+      node((2,1.2), [3], name: <9>),
+      node((2,1.6), [4], name: <10>),
+      edge(<2>,<8>, "->"),
+      edge(<2>,<9>, "->"),
+      edge(<2>,<10>, "->"),
+      edge(<3>, <7>, "->"),
+      edge(<3>, <9>, "->"),
+      edge(<4>, <7>, "->"),
+      edge(<4>, <8>, "->"),
+      edge(<4>, <10>, "->"),
+      edge(<5>, <7>, "->"),
+      edge(<5>, <9>, "->")
+    ),
+    $ mat(
+      space.en, #text(red)[0], #text(red)[1], #text(red)[2], #text(red)[3], #text(red)[4] ;
+      #text(red)[0], 0, 0, 0, 0, 0;
+      #text(red)[1], 0, 0, 1, 1, 1;
+      #text(red)[2], 0, 1, 0, 1, 0;
+      #text(red)[3], 0, 1, 1, 0, 1;
+      #text(red)[4], 0, 1, 0, 1, 0;
+      augment: #(hline: 1, vline: 1, stroke: 0.5pt + red)
+    ) $
+  )
 
