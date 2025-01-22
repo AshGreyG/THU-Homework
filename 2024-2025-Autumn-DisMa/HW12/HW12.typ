@@ -167,3 +167,91 @@ $A$ 中各元素的等价类如下：
 \
 == 主观题 12.6
 \
+1. $A={a,b,c,d,e}$ 及其上的关系 $R=I_A union {<a,d>,<a,c>,<a,b>,<a,e>,<b,e>,<c,e>,<d,e>}$ 构成的偏序集的 Hasse 图如下：
+
+  #align(center)[
+    #diagram(
+      node-shape: circle,
+      node-stroke: 0.5pt,
+      node((0,0), $a$, name: <a>),
+      node((-1,-0.7), $b$, name: <b>),
+      node((0,-0.7), $c$, name: <c>),
+      node((1,-0.7), $d$, name: <d>),
+      node((0,-1.4), $e$, name: <e>),
+
+      edge(<a>,<b>),
+      edge(<a>,<c>),
+      edge(<a>,<d>),
+      edge(<b>,<e>),
+      edge(<c>,<e>),
+      edge(<d>,<e>),
+    )
+  ]
+
+  $A$ 的最大元是 $e$，最小元是 $a$（这里主要是 $a$ 和 $e$ 对于其他元素都是可比的），极大元是 $e$，极小元是 $a$；
+
+2. $A={a,b,c,d}$ 及其上的关系 $R=I_A union {<c,d>}$ 构成的偏序集的 Hasse 图如下：
+
+  #align(center)[
+    #diagram(
+      node-shape: circle,
+      node-stroke: 0.5pt,
+      node((0,0), $a$, name: <a>),
+      node((1,0), $b$, name: <b>),
+      node((0.5,1), $c$, name: <c>),
+      node((0.5,2), $d$, name: <d>),
+
+      edge(<c>, <d>)
+    )
+  ]
+
+  $A$ 不具有最大元和最小元，因为 $a$ 和 $b$ 孤立的存在使得其他元素和其可比；$A$ 的极大元是 $a,b,d$，极小元是 $a,b,c$（确实没有其他元素比 $a$ 或者 $b$ 大于或者小于，它们既是极大元也是极小元）。
+
+\
+== 主观题 12.7
+\
+设 $D$ 是 $ZZ^+$ 上的整除关系，$T={1,2,dots.c.h,10} subset.eq ZZ^+$，在偏序集 $angle.l ZZ^+, D angle.r$ 中，求 $T$ 的上界、下界、上确界和下确界。
+
+我们可以得到偏序集 $angle.l ZZ^+, D angle.r$ 的 Hasse 图大致如下：
+
+#align(center)[
+  #diagram(
+    node-shape: circle,
+    node-stroke: 0.5pt,
+    node((0,0), $1$, name: <1>),
+    node((-2,-0.7), $2$, name: <2>),
+    node((-1,-0.7), $3$, name: <3>),
+    node((0,-0.7), $5$, name: <5>),
+    node((1,-0.7), $7$, name: <7>),
+    node((2,-0.7), $dots.c.h$, name: <prime>),
+    node((-3,-1.4), $4$, name: <4>),
+    node((-2,-1.4), $6$, name: <6>),
+    node((-4,-2.1), $8$, name: <8>),
+    node((-1,-1.4), $9$, name: <9>),
+    node((0,-1.4), $10$, name: <10>),
+    
+    edge(<1>, <2>),
+    edge(<1>, <3>),
+    edge(<1>, <5>),
+    edge(<1>, <7>),
+    edge(<1>, <prime>),
+    edge(<2>, <4>),
+    edge(<2>, <6>),
+    edge(<3>, <6>),
+    edge(<4>, <8>),
+    edge(<3>, <9>),
+    edge(<2>, <10>),
+    edge(<5>, <10>),
+  )
+]
+
+因此 $T$ 在偏序集 $angle.l ZZ^+, D angle.r$ 中的上界是 $x=2520k, k in ZZ^+$，下界是 $1$；上确界是 $2520$，下确界是 $1$。
+
+\
+== 主观题 12.8
+\
+设 $R$ 是 $A$ 上的偏序关系，$B subset.eq A$，证明 $R sect (B times B)$ 是 $B$ 上的偏序关系。
+
+证明：只需要依次说明 $R sect (B times B)$ 具有自反性和传递性，但不具有对称行即可：
+- 自反性：设 $x in B$，因此 $x R x and x(B times B)x$，因此 $<x,x> in R sect (B times B)$，故 $R sect (B times B)$ 满足自反性；
+- 传递性：设 $x,y,z in B$，并且 $<x,y>, <y,z> in R sect (B times B)$，则我们知道 $<x,y> in R and <x,y> in B times B$，
